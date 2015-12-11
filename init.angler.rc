@@ -23,8 +23,6 @@ on early-init
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
-    # Load persistent dm-verity state
-    verity_load_state
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -59,12 +57,6 @@ on fs
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-
-    # Adjust parameters for dm-verity device
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-
-    # Update dm-verity state and set partition.*.verified properties
-    verity_update_state
 
 on boot
     # execute script to set initial CPU settings
@@ -119,8 +111,8 @@ on boot
 
     # Assign TCP buffer thresholds to be ceiling value of technology maximums
     # Increased technology maximums should be reflected here.
-    write /proc/sys/net/core/rmem_max  8388608
-    write /proc/sys/net/core/wmem_max  8388608
+    write /proc/sys/net/core/rmem_max 8388608
+    write /proc/sys/net/core/wmem_max 8388608
 
     # Leds
     chown system system /sys/class/leds/red/on_off_ms
@@ -210,25 +202,25 @@ on post-fs-data
     chmod 0440 /persist/data/st_xtalk
 
 on charger
-   #set cpu4,5 online first, or they can't get into low power consumption mode
-   write /sys/devices/system/cpu/cpu4/online 1
-   write /sys/devices/system/cpu/cpu5/online 1
-   #low power governing
-   write /sys/devices/soc.0/qcom,bcl.60/mode disable
-   write /sys/devices/soc.0/qcom,bcl.60/hotplug_mask 0
-   write /sys/devices/soc.0/qcom,bcl.60/hotplug_soc_mask 0
-   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-   write /sys/devices/system/cpu/cpu1/online 0
-   write /sys/devices/system/cpu/cpu2/online 0
-   write /sys/devices/system/cpu/cpu3/online 0
-   write /sys/devices/system/cpu/cpu4/online 0
-   write /sys/devices/system/cpu/cpu5/online 0
-   write /sys/devices/system/cpu/cpu6/online 0
-   write /sys/devices/system/cpu/cpu7/online 0
+    #set cpu4,5 online first, or they can't get into low power consumption mode
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    #low power governing
+    write /sys/devices/soc.0/qcom,bcl.60/mode disable
+    write /sys/devices/soc.0/qcom,bcl.60/hotplug_mask 0
+    write /sys/devices/soc.0/qcom,bcl.60/hotplug_soc_mask 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
 
 on property:sys.boot_completed=1
-     #allow CPUs to go in deeper idle state than C0
-     write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    #allow CPUs to go in deeper idle state than C0
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
 # Search the laser device under /dev/input, then create symlink
 service InputEventFind /vendor/bin/InputEventFind
@@ -316,21 +308,13 @@ service qti /system/vendor/bin/qti
     group radio net_raw usb net_admin
 
 service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
+    class late_start
+    user root
+    group root
 
 service loc_launcher /system/bin/loc_launcher
-   class late_start
-   group gps inet net_raw net_admin wifi
-
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B \
-        -o /data/data/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
+    class late_start
+    group gps inet net_raw net_admin wifi
 
 # start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
@@ -422,9 +406,9 @@ on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
 service imscmservice /system/bin/imscmservice
-   class main
-   user system
-   group radio net_raw diag diag log
+    class main
+    user system
+    group radio net_raw diag diag log
 
 service cnd /system/bin/cnd
     class late_start
@@ -432,28 +416,28 @@ service cnd /system/bin/cnd
 
 on property:ro.boot.hardware.revision=ANGLER-V1
     write /sys/module/bcmdhd/parameters/nvram_path \
-	      /system/etc/wifi/bcmdhd-pme.cal
+          /system/etc/wifi/bcmdhd-pme.cal
 
 on property:ro.boot.hardware.revision=ANGLER-V2
     write /sys/module/bcmdhd/parameters/nvram_path \
-	      /system/etc/wifi/bcmdhd-pme.cal
+          /system/etc/wifi/bcmdhd-pme.cal
 
 on property:ro.boot.wifi_cal=2
-	write /sys/module/bcmdhd/parameters/nvram_path \
-		  /system/etc/wifi/bcmdhd-low.cal
+    write /sys/module/bcmdhd/parameters/nvram_path \
+          /system/etc/wifi/bcmdhd-low.cal
 
 on property:ro.boot.wifi_cal=3
-	write /sys/module/bcmdhd/parameters/nvram_path \
-		  /system/etc/wifi/bcmdhd-high.cal
+    write /sys/module/bcmdhd/parameters/nvram_path \
+          /system/etc/wifi/bcmdhd-high.cal
 
 on property:ro.boot.hardware.sku=H1511
     setprop ro.boot.wificountrycode US
 
 service mcfg-sh /system/bin/init.mcfg.sh
-   class late_start
-   user radio
-   group radio system
-   oneshot
+    class late_start
+    user radio
+    group radio system
+    oneshot
 
 service oem_qmi_server /vendor/bin/oem_qmi_server
     class main
@@ -489,4 +473,3 @@ service diag_test_server /vendor/bin/diag_test_server
 
 on property:ro.boot.mode=hw-factory
     start diag_test_server
-
