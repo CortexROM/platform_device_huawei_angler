@@ -27,7 +27,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh
 
-
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.mcfg.sh:system/bin/init.mcfg.sh
 
@@ -53,7 +52,7 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     device/huawei/angler/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     device/huawei/angler/audio_policy.conf:system/etc/audio_policy.conf \
-    device/huawei/angler/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/huawei/angler/audio_platform_info.xml:system/etc/audio_platform_info.xml
 
 # Input device files
 PRODUCT_COPY_FILES += \
@@ -117,7 +116,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
-
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
@@ -229,7 +227,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.data_no_toggle=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.radio.data_con_rprt=true
+    persist.radio.data_con_rprt=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=72 \
@@ -251,7 +249,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # for perfd
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.min_freq_0=384000
+    ro.min_freq_0=384000 \
     ro.min_freq_4=384000
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -281,7 +279,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/frp
+    ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/frp
 
 # For SPN display
 PRODUCT_COPY_FILES += \
@@ -347,11 +345,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
-   fs_config_files
+    fs_config_files
 
 # For data
 PRODUCT_PACKAGES += \
-   librmnetctl
+    librmnetctl
 
 # limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
