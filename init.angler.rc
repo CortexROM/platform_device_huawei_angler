@@ -209,7 +209,7 @@ on charger
     write /sys/devices/soc.0/qcom,bcl.60/mode disable
     write /sys/devices/soc.0/qcom,bcl.60/hotplug_mask 0
     write /sys/devices/soc.0/qcom,bcl.60/hotplug_soc_mask 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
@@ -229,12 +229,6 @@ service InputEventFind /vendor/bin/InputEventFind
 
 service ssr_setup /system/bin/ssr_setup
     oneshot
-    disabled
-
-service ss_ramdump /system/bin/subsystem_ramdump
-    class main
-    user system
-    group system
     disabled
 
 on property:persist.sys.ssr.restart_level=*
