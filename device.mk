@@ -352,11 +352,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-threads=4 \
     dalvik.vm.image-dex2oat-threads=4
 
-
 # Modem debugger
--ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
--PRODUCT_PACKAGES += \
--    QXDMLogger
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    QXDMLogger
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.userdebug:root/init.angler.diag.rc
