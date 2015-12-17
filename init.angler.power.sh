@@ -56,7 +56,8 @@ write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "65 460000:75 960000:80"
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 80000
-write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
+restorecon -R /sys/devices/system/cpu # must restore after setting governor
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 384000
 
 # online CPU4
 write /sys/devices/system/cpu/cpu4/online 1
@@ -74,7 +75,8 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "70 960000:80 1248000:85"
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 80000
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 633600
+restorecon -R /sys/devices/system/cpu # must restore after setting governor
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 384000
 
 # restore A57's max
 copy /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
@@ -111,7 +113,6 @@ write /sys/module/msm_thermal/core_control/enabled 1
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask $bcl_hotplug_mask
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask $bcl_hotplug_soc_mask
-get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
 # change GPU initial power level from 305MHz(level 4) to 180MHz(level 5) for power savings
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
