@@ -208,7 +208,7 @@ on charger
     write /sys/devices/soc.0/qcom,bcl.60/mode disable
     write /sys/devices/soc.0/qcom,bcl.60/hotplug_mask 0
     write /sys/devices/soc.0/qcom,bcl.60/hotplug_soc_mask 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
