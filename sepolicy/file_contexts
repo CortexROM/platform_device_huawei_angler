@@ -162,6 +162,3 @@
 # Vibrator
 /sys/devices/virtual/timed_output/vibrator/vmax_mv_light                   u:object_r:sysfs_vibrator:s0
 /sys/devices/virtual/timed_output/vibrator/vmax_mv_strong                  u:object_r:sysfs_vibrator:s0
-
-# Sunlight Mode
-/sys/devices/virtual/graphics/fb0/hbm                    u:object_r:sysfs_display:s0

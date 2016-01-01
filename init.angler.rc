@@ -129,10 +129,6 @@ on boot
     chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv_light
     chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv_strong
 
-    # Sunlight Enhancement mode
-    chown system system /sys/devices/virtual/graphics/fb0/hbm
-    chmod 0660 /sys/devices/virtual/graphics/fb0/hbm
-
 on property:init.svc.per_mgr=running
     start per_proxy
 
