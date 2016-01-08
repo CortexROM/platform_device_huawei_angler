@@ -229,9 +229,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.data_no_toggle=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.data_con_rprt=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=72 \
     ro.hwui.layer_cache_size=48 \
     ro.hwui.r_buffer_cache_size=8 \
@@ -279,7 +276,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Enable Wifi calling
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.iwlan.enable=true
+    persist.data.iwlan.enable=true \
+    persist.radio.ignore_ims_wlan=1 \
+    persist.radio.data_con_rprt=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/frp
