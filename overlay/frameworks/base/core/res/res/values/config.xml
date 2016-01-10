@@ -158,7 +158,7 @@
     <bool name="config_enableMultiUserUI">true</bool>
 
     <!--  Maximum number of supported users -->
-    <integer name="config_multiuserMaximumUsers">4</integer>
+    <integer name="config_multiuserMaximumUsers">8</integer>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
@@ -310,7 +310,7 @@
     <bool name="config_device_volte_available">true</bool>
 
     <!-- Flag specifying whether VoLTE is available on device -->
-    <bool name="config_device_vt_available">false</bool>
+    <bool name="config_device_vt_available">true</bool>
 
     <!-- Flag specifying whether WFC over IMS is availasble on device -->
     <bool name="config_device_wfc_ims_available">true</bool>
