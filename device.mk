@@ -216,9 +216,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196609
 
-# enable lazy dexopt
-persist.sys.lazy.dexopt=true
-
 # DPI Settings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=560 \
