@@ -3,7 +3,7 @@
     "remote":     "github",  
     "repository": "DesolationRom-Devices/vendor_huawei_angler",
     "target_path": "vendor/huawei/angler",
-    "branch": "marshmallow"
+    "branch": "mm6.0"
   },
   {
     "remote":      "github",  
