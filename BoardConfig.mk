@@ -31,18 +31,21 @@ TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 
 CLANG_O3 := true
 STRICT_ALIASING := false
-KRAIT_TUNINGS := true
 GRAPHITE_OPTS := false
 ENABLE_GCCONLY := true
 
 ENABLE_CPUSETS := true
 
 # Inline kernel building
-KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-5.3-uber/bin
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
 TARGET_KERNEL_CONFIG := cyanogenmod_angler_defconfig
+
+# Kernel Toolchain
+TARGET_GCC_VERSION_ARM := 5.3-uber
+
+ # Rom Toolchain
+TARGET_GCC_VERSION_EXP := 5.3-uber
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
