@@ -42,17 +42,16 @@ TARGET_KERNEL_SOURCE := kernel/huawei/angler
 TARGET_KERNEL_CONFIG := cyanogenmod_angler_defconfig
 
 # Kernel Toolchain
-TARGET_GCC_VERSION_ARM := 5.3-uber
+TARGET_GCC_VERSION_ARM := 5.3-kernel-xanax
 
  # Rom Toolchain
-TARGET_GCC_VERSION_EXP := 5.3-uber
-
+TARGET_GCC_VERSION_EXP := 4.9
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-5.3-uber/bin
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-6.0-uber/bin
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
