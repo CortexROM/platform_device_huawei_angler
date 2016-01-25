@@ -6,12 +6,6 @@
     "branch":      "mm6.0"
   },
   {
-    "remote":      "github",
-    "repository":  "CortexROM/kernel_huawei_angler",
-    "target_path": "kernel/huawei/angler",
-    "branch":      "marshmallow"
-  },
-  {
     "remote":      "aosp",
     "repository":  "device/huawei/angler-kernel",
     "target_path": "kernel/huawei/angler-aosp",
