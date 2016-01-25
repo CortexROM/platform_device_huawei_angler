@@ -6,9 +6,9 @@
     "branch":      "mm6.0"
   },
   {
-    "remote":      "aosp",
-    "repository":  "device/huawei/angler-kernel",
+    "remote":      "github",
+    "repository":  "DesolationRom-Devices/kernel_huawei_angler-aosp",
     "target_path": "kernel/huawei/angler-aosp",
-    "branch":      "master"
+    "branch":      "mm6.0"
   }
 ]
