@@ -12,8 +12,7 @@
     "branch": "marshmallow"
   },
   {
-    "remote":      "aosp",
-    "repository": "device/huawei/angler-kernel",
+    "repository": "https://android.googlesource.com/device/huawei/angler-kernel",
     "target_path": "kernel/huawei/angler-aosp",
     "branch": "master"
   }
