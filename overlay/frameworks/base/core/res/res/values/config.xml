@@ -104,7 +104,7 @@
     <integer name="config_screenBrightnessDim">6</integer>
 
     <!-- Screen brightness when dozing. -->
-    <integer name="config_screenBrightnessDoze">13</integer>
+    <integer name="config_screenBrightnessDoze">20</integer>
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
